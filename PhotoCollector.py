@@ -4,8 +4,8 @@ import exifread
 
 def output(file, f_dir, f_name, f_format):
     try:
-        open(f_dir + f_name + '.' + f_format)
-        os.renames(file, f_dir + f_name + '.copy.' + f_format)
+        with open(f_dir + f_name + '.' + f_format):
+            os.renames(file, f_dir + f_name + '.copy.' + f_format)
     except:
         os.renames(file, f_dir + f_name + '.' + f_format)
 
